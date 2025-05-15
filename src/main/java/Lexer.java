@@ -89,21 +89,6 @@ public class Lexer {
     }
 
     /**
-     * Reports a lexical error with location and exits.
-     * @param line the line of the error
-     * @param pos the column of the error
-     * @param msg the error message
-     */
-    static void error(int line, int pos, String msg) {
-        if (line > 0 && pos > 0) {
-            System.out.printf("%s in line %d, pos %d\n", msg, line, pos);
-        } else {
-            System.out.println(msg);
-        }
-        System.exit(1);
-    }
-
-    /**
      * Initializes lexer with full source text.
      * @param source complete source code
      */
@@ -119,6 +104,21 @@ public class Lexer {
         this.keywords.put("putc", TokenType.Keyword_putc);
         this.keywords.put("while", TokenType.Keyword_while);
 
+    }
+
+    /**
+     * Reports a lexical error with location and exits.
+     * @param line the line of the error
+     * @param pos the column of the error
+     * @param msg the error message
+     */
+    static void error(int line, int pos, String msg) {
+        if (line > 0 && pos > 0) {
+            System.out.printf("%s in line %d, pos %d\n", msg, line, pos);
+        } else {
+            System.out.println(msg);
+        }
+        System.exit(1);
     }
 
     /**
